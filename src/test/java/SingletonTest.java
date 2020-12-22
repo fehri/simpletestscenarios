@@ -12,8 +12,14 @@ import java.util.concurrent.TimeUnit;
 public class SingletonTest {
 
     // What is the difference between Test 01 and Test 02?
-    // Why is test03 not failing?
-    // Why is test04 sometimes failing and sometimes passing?
+    // What is the difference between Test 02 and Test 03?
+
+    // Is Test 02 using the overridden equals method of the Singleton class?
+    // Is Test 03 using the overridden equals method of the Singleton class?
+
+    // Why is test04 not failing?
+
+    // Why is test05 sometimes failing and sometimes passing?
     // Can you change the code in the Singleton class to ensure test04 will always succeed?
 
     @Test
@@ -32,13 +38,23 @@ public class SingletonTest {
         Singleton singleton1 = Singleton.getInstance();
         Singleton singleton2 = Singleton.getInstance();
 
+        Assertions.assertTrue(singleton1.equals(singleton2));
+
+    }
+
+    @Test
+    public void test03(){
+
+        Singleton singleton1 = Singleton.getInstance();
+        Singleton singleton2 = Singleton.getInstance();
+
         Assertions.assertEquals(singleton1,singleton2);
 
     }
 
 
     @Test
-    public void test03(){
+    public void test04(){
 
         Singleton singleton1 = Singleton.getInstance();
         Singleton singleton2 = Singleton.getInstance();
@@ -51,7 +67,7 @@ public class SingletonTest {
     }
 
     @Test
-    public void test04() throws InterruptedException {
+    public void test05() throws InterruptedException {
         int threadsAmount = 500;
         Set<Singleton> singletonSet = Collections.newSetFromMap(new ConcurrentHashMap<>());
 
@@ -69,9 +85,4 @@ public class SingletonTest {
 
         Assertions.assertEquals(1, singletonSet.size());
     }
-
-
-
-
-
 }
