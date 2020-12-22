@@ -20,7 +20,7 @@ public class SingletonTest {
     // Why is test04 not failing?
 
     // Why is test05 sometimes failing and sometimes passing?
-    // Can you change the code in the Singleton class to ensure test04 will always succeed?
+    // Can you change the code in the Singleton class to ensure test05 will always succeed?
 
     @Test
     public void test01(){
