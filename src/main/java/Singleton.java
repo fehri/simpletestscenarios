@@ -1,4 +1,3 @@
-
 public class Singleton {
 
     // Hidden class variable of its own type
@@ -25,4 +24,25 @@ public class Singleton {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        // If the object is compared with itself
+        if (obj == this) {
+            return true;
+        }
+
+        // Check if the object o is an instance of Singleton or not
+        if (!(obj instanceof Singleton)) {
+            return false;
+        }
+
+        // typecast object to Singleton so that we can compare data members
+        Singleton singleton = (Singleton) obj;
+
+        // Compare the names and return accordingly
+        return this.getName().equals(((Singleton) obj).getName());
+    }
+
 }
